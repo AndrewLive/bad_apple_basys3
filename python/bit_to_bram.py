@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
     address_bits = 16
     data_bits = 32
-    frame_limit = 18
+    frame_limit = 16
     
     # open output file to write to
     with open(outfile_path, 'w') as outfile:
@@ -104,14 +104,14 @@ if __name__ == '__main__':
                 current_address = 0
 
                 # loop over every line
+                i = 0
                 for line in infile:
-                    i = 0
-                    if i == frame_limit * 8:
+                    if i == frame_limit * 32:
                         break
                     outfile.write('\t\t')
 
                     # write the current address in binary
-                    outfile.write(f'{address_bits}\'d{current_address:05}: data = ')
+                    outfile.write(f'9\'d{current_address:04}: data = ')
                     # write the data associated with that address
                     outfile.write(f'{data_bits}\'b{str.strip(line)};\n')
 

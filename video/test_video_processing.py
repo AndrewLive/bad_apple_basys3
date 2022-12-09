@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 
 # Creating a VideoCapture object to read the video
-cap = cv2.VideoCapture('./bad_apple_32x32_8fps.mkv')
+cap = cv2.VideoCapture('./bad_apple_32x32_7fps.mkv')
 
-
+print(cap.isOpened())
 # Loop until the end of the video
 i = 0
 while (cap.isOpened()):
@@ -27,7 +27,7 @@ while (cap.isOpened()):
     # adaptive thresholding to use different threshold
     # values on different regions of the frame.
     ThreshRet, Thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
-    cv2.imwrite(f'./bad_apple_32x32_8fps_frames/bad_apple_thresh_{i:04}.png', Thresh)
+    cv2.imwrite(f'./bad_apple_32x32_7fps_frames/bad_apple_thresh_{i:04}.png', Thresh)
 
     # cv2.imshow('Thresh', Thresh)
     # define q as the exit button
